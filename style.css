@@ -1,0 +1,206 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  background-color: hsl(229, 24%, 87%);
+  min-height: 100vh;
+}
+
+main {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+main div.form__container {
+  display: flex;
+  background-color: hsl(0, 0%, 100%);
+  max-width: 60rem;
+  border-radius: 10px;
+  padding: 1rem;
+}
+main div.form__container div.form__sidebar {
+  position: relative;
+  width: -moz-min-content;
+  width: min-content;
+}
+main div.form__container div.form__sidebar ul.form__steps {
+  padding: 2rem 2rem;
+  position: absolute;
+  top: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+main div.form__container div.form__sidebar ul.form__steps li.form__step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+main div.form__container div.form__sidebar ul.form__steps li.form__step > h4 {
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid hsl(206, 94%, 87%);
+  color: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+}
+main div.form__container div.form__sidebar ul.form__steps li.form__step div {
+  font-weight: 400;
+  color: hsl(228, 100%, 84%);
+}
+main div.form__container div.form__sidebar ul.form__steps li.form__step div h4 {
+  color: hsl(0, 0%, 100%);
+  font-weight: 500;
+}
+main div.form__container div.form__right {
+  display: grid;
+  width: 100%;
+  padding: 1rem 6rem;
+  place-content: center;
+}
+main div.form__container div.form__right div.btn-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+main div.form__container div.form__right div.btn-container button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: none;
+  background-color: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+}
+main div.form__container div.form__right section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
+}
+main div.form__container div.form__right section h1 {
+  color: hsl(213, 96%, 18%);
+}
+main div.form__container div.form__right section p {
+  margin-top: 1rem;
+  color: rgba(0, 0, 0, 0.45);
+}
+main div.form__container div.form__right section div.input__fields__wrapper {
+  margin-bottom: 3rem;
+}
+main div.form__container div.form__right section div.input__fields__wrapper div.input__label__wrapper {
+  display: flex;
+  margin: 1.5rem 0;
+  flex-direction: column;
+}
+main div.form__container div.form__right section div.input__fields__wrapper div.input__label__wrapper div.label__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  color: hsl(213, 96%, 18%);
+}
+main div.form__container div.form__right section div.input__fields__wrapper div.input__label__wrapper div.label__wrapper span {
+  color: red;
+}
+main div.form__container div.form__right section div.input__fields__wrapper div.input__label__wrapper input {
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+main div.form__container div.form__right section.step__2 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+main div.form__container div.form__right section.step__2 div.section__middle {
+  display: flex;
+  flex-direction: column;
+}
+main div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 8rem);
+  grid-column-gap: 1rem;
+  grid-row-gap: 0px;
+}
+main div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards div.billing__card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  gap: 3rem;
+}
+main div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards div.billing__card > div {
+  color: hsl(213, 96%, 18%);
+  line-height: 0.5rem;
+}
+main div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards :nth-child(1) {
+  grid-area: 1/1/2/2;
+}
+main div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards :nth-child(2) {
+  grid-area: 1/2/2/3;
+}
+main div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards :nth-child(3) {
+  grid-area: 1/3/2/4;
+}
+main div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards :nth-child(4) {
+  grid-area: 2/1/3/4;
+}
+main div.form__container div.form__right section.step__2 div.section__switch {
+  display: flex;
+  margin-top: 4rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.switch {
+  display: inline-block;
+}
+.switch input {
+  display: none;
+}
+.switch label {
+  display: block;
+  width: 60px;
+  height: 30px;
+  padding: 3px;
+  border-radius: 15px;
+  background-color: hsl(213, 96%, 18%);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.switch label::after {
+  content: "";
+  display: inherit;
+  width: 20px;
+  height: 20px;
+  border-radius: 12px;
+  background: hsl(0, 0%, 100%);
+  transition: 0.3s;
+  transform: translateX(1.5px) translateY(1.5px);
+}
+.switch input:checked ~ label {
+  border-color: hsl(213, 96%, 18%);
+}
+.switch input:checked ~ label::after {
+  translate: 30px 0;
+  background: hsl(0, 0%, 100%);
+}
+.switch .switch input:disabled ~ label {
+  opacity: 0.5;
+  cursor: not-allowed;
+}/*# sourceMappingURL=style.css.map */
