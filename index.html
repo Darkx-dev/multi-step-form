@@ -50,7 +50,7 @@
                 </ul>
             </div>
             <div class="form__right">
-                <section class="step__1" style="display: none;">
+                <section class="step__1">
                     <div class="section__head">
                         <h1>Personal info</h1>
                         <p>Please provide your name, email address, and photo number.</p>
@@ -59,30 +59,30 @@
                         <div class="input__label__wrapper name__container">
                             <div class="label__wrapper">
                                 <label for="name">Name</label>
-                                <span hidden>2</span>
+                                <span class="errorSpan" hidden></span>
                             </div>
                             <input type="text" id="name" placeholder="e.g.Stephen King" required>
                         </div>
                         <div class="input__label__wrapper email__container">
                             <div class="label__wrapper">
                                 <label for="email">Email Address</label>
-                                <span hidden>1</span>
+                                <span class="errorSpan" hidden></span>
                             </div>
                             <input type="email" id="email" placeholder="e.g.stephenking@lorem.com" required>
                         </div>
                         <div class="input__label__wrapper phone__container">
                             <div class="label__wrapper">
                                 <label for="phone">Phone Number</label>
-                                <span hidden>1</span>
+                                <span class="errorSpan" hidden></span>
                             </div>
                             <input type="number" id="phone" placeholder="e.g. +1 234 567 890" required>
                         </div>
                     </div>
                     <div class="btn-container">
-                        <button type="submit" onclick="handleNextStep()">Next Step</button>
+                        <button class="nextBtn disabled" type="submit" onclick="handleNextStep()" disabled>Next Step</button>
                     </div>
                 </section>
-                <section class="step__2">
+                <section class="step__2" style="display: none;">
                     <div class="section__head">
                         <h1>Select your plan</h1>
                         <p>You have the option of monthly or yearly billing.</p>
@@ -139,8 +139,8 @@
                         </div>
                     </div>
                     <div class="section__bottom btn-container">
-                        <button type="submit" onclick="handleNextStep()">Next Step</button>
-                        <button>Go Back</button>
+                        <button class="nextBtn disabled" type="button" onclick="handleNextStep()" disabled>Next Step</button>
+                        <button type="button" onclick="handleBackStep()">Go Back</button>
                     </div>
                 </section>
             </div>

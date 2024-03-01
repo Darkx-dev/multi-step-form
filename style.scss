@@ -15,6 +15,16 @@ $White: hsl(0, 0%, 100%);
   font-family: "Ubuntu", sans-serif;
 }
 
+div.btn-container {
+  button.disabled {
+    background-color: hsla(213, 86%, 20%, 0.579);
+    color: red;
+  }
+  button.enabled {
+    background-color: $Marineblue;
+  }
+}
+
 body {
   background-color: $Lightgray;
   min-height: 100vh;
@@ -84,8 +94,8 @@ main div.form__container {
         border-radius: 6px;
         font-weight: 500;
         border: none;
-        background-color: $Marineblue;
         color: $White;
+        transition: all 0.1s;
       }
     }
     section {

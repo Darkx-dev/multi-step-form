@@ -5,6 +5,14 @@
   font-family: "Ubuntu", sans-serif;
 }
 
+div.btn-container button.disabled {
+  background-color: hsla(213, 86%, 20%, 0.579);
+  color: red;
+}
+div.btn-container button.enabled {
+  background-color: hsl(213, 96%, 18%);
+}
+
 body {
   background-color: hsl(229, 24%, 87%);
   min-height: 100vh;
@@ -78,8 +86,8 @@ main div.form__container div.form__right div.btn-container button {
   border-radius: 6px;
   font-weight: 500;
   border: none;
-  background-color: hsl(213, 96%, 18%);
   color: hsl(0, 0%, 100%);
+  transition: all 0.1s;
 }
 main div.form__container div.form__right section {
   display: flex;
