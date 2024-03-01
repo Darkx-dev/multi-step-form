@@ -28,7 +28,6 @@ main {
 main div.form__container {
   display: flex;
   background-color: hsl(0, 0%, 100%);
-  max-width: 60rem;
   border-radius: 10px;
   padding: 1rem;
 }
@@ -71,10 +70,9 @@ main div.form__container div.form__sidebar ul.form__steps li.form__step div h4 {
   font-weight: 500;
 }
 main div.form__container div.form__right {
-  display: grid;
+  height: 100%;
   width: 100%;
   padding: 1rem 6rem;
-  place-content: center;
 }
 main div.form__container div.form__right div.btn-container {
   display: flex;
@@ -91,10 +89,9 @@ main div.form__container div.form__right div.btn-container button {
 }
 main div.form__container div.form__right section {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
   height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
 }
 main div.form__container div.form__right section h1 {
   color: hsl(213, 96%, 18%);
@@ -126,12 +123,6 @@ main div.form__container div.form__right section div.input__fields__wrapper div.
   border-radius: 6px;
   font-weight: 500;
   border: 1px solid rgba(0, 0, 0, 0.25);
-}
-main div.form__container div.form__right section.step__2 {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
 }
 main div.form__container div.form__right section.step__2 div.section__middle {
   display: flex;

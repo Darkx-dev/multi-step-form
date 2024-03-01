@@ -1,6 +1,10 @@
 const inputFieldsFirst = document.querySelectorAll("input")
 const nextButton = document.querySelector(".nextBtn")
-const errorSpans = document.querySelectorAll(".errorSpan")
+const sections = document.querySelectorAll("section")
+
+// const errorSpans = document.querySelectorAll(".errorSpan")
+
+let activeSection = 0
 
 let validity = {
     stepOne: {
@@ -21,7 +25,16 @@ const toggleError = (flag, element, errorText) => {
 }
 
 const handleNextStep = () => {
-    console.log("Hello world!")
+    console.log(sections)
+    sections[activeSection].style.display = "none"
+    sections[activeSection + 1].style.display = "flex"
+    activeSection += 1
+}
+
+const handleBackStep = () => {
+    sections[activeSection].style.display = "none"
+    sections[activeSection - 1].style.display = "flex"
+    activeSection -= 1
 }
 
 const enableButton = () => {
