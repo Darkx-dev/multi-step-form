@@ -88,6 +88,7 @@ main div.form__container div.form__right div.btn-container {
 main div.form__container div.form__right div.btn-container button {
   padding: 0.8rem 1.5rem;
   border-radius: 6px;
+  cursor: pointer;
   font-weight: 500;
   border: none;
   color: hsl(0, 0%, 100%);
@@ -250,12 +251,6 @@ main div.form__container div.form__right section.step__2 div.section__switch {
   }
   body > main > div.form__container div.form__right {
     position: relative;
-  }
-  body > main > div.form__container div.form__right div.btn-container {
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-  }
-  body > main > div.form__container div.form__right div.btn-container button {
-    cursor: pointer;
   }
   body > main > div.form__container div.form__right div.section__main__wrapper {
     position: fixed;
