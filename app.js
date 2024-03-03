@@ -103,3 +103,4 @@ inputFieldsFirst.forEach((input, index) => {
         toggleButtonBehaviour()
     })
 })
+

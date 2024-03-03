@@ -36,6 +36,12 @@ main div.form__container div.form__sidebar {
   width: -moz-min-content;
   width: min-content;
 }
+main div.form__container div.form__sidebar img.desktop__image {
+  display: block;
+}
+main div.form__container div.form__sidebar img.mobile__image {
+  display: none;
+}
 main div.form__container div.form__sidebar ul.form__steps {
   padding: 2rem 2rem;
   position: absolute;
@@ -133,6 +139,7 @@ main div.form__container div.form__right section.step__2 div.section__middle div
   grid-template-columns: repeat(3, 8rem);
   grid-column-gap: 1rem;
   grid-row-gap: 0px;
+  margin-top: 3rem;
 }
 main div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards div.billing__card {
   padding: 1rem;
@@ -202,4 +209,99 @@ main div.form__container div.form__right section.step__2 div.section__switch {
 .switch .switch input:disabled ~ label {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media screen and (max-width: 780px) {
+  main {
+    height: 100%;
+  }
+  div.btn-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: hsl(0, 0%, 100%);
+    width: 100vw;
+    padding: 1rem;
+  }
+  body > main > div.form__container {
+    background-color: hsl(217, 100%, 97%);
+    min-height: 100vh;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+  }
+  body > main > div.form__container > div.form__left.form__sidebar img.desktop__image {
+    display: none;
+  }
+  body > main > div.form__container > div.form__left.form__sidebar img.mobile__image {
+    display: block;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100vw;
+  }
+  body > main > div.form__container > div.form__left.form__sidebar > ul {
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+  }
+  body > main > div.form__container > div.form__left.form__sidebar > ul li > div {
+    display: none;
+  }
+  body > main > div.form__container div.form__right {
+    position: relative;
+  }
+  body > main > div.form__container div.form__right div.btn-container {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+  }
+  body > main > div.form__container div.form__right div.btn-container button {
+    cursor: pointer;
+  }
+  body > main > div.form__container div.form__right div.section__main__wrapper {
+    position: fixed;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 7rem;
+  }
+  body > main > div.form__container div.form__right div.section__main__wrapper > div {
+    background-color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    width: 90vw;
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+  body > main > div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+  }
+  body > main > div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards div.section__switch span.switch label {
+    width: 40px;
+    height: 20px;
+  }
+  body > main > div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards div.section__switch span.switch label::after {
+    content: "";
+    display: inherit;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    background: hsl(0, 0%, 100%);
+    transition: 0.3s;
+    transform: translateX(1px) translateY(1px);
+  }
+  body > main > div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards div.section__switch span.switch input:checked ~ label::after {
+    translate: 19px 0;
+    background: hsl(0, 0%, 100%);
+  }
+  body > main > div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards div.billing__card {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  body > main > div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards div.section__switch {
+    margin-top: 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */
