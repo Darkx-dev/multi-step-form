@@ -24,7 +24,7 @@ let validity = {
     },
     stepTwo: {
         plan: false
-    },
+    }, 
     stepThree: {
         addon: true
     }
