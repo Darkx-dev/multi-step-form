@@ -1,6 +1,16 @@
 const inputFieldsFirst = document.querySelectorAll("input")
-const nextButton = document.querySelector(".nextBtn")
+const nextButton = document.querySelectorAll(".nextBtn")
 const sections = document.querySelectorAll("section")
+const planRadioInputs = document.querySelectorAll("input.plan__input")
+const addonCheckboxInputs = document.querySelectorAll(".addon input")
+const stepNavigatiors = document.querySelectorAll(".form__step h4:first-child")
+console.log(stepNavigatiors)
+
+// Debugging
+// sections[0].style.display = "none"
+// sections[1].style.display = "none"
+// sections[2].style.display = "none"
+// sections[3].style.display = "flex"
 
 // const errorSpans = document.querySelectorAll(".errorSpan")
 
@@ -11,6 +21,12 @@ let validity = {
         name: false,
         email: false,
         phone: false
+    },
+    stepTwo: {
+        plan: false
+    },
+    stepThree: {
+        addon: true
     }
 }
 
@@ -24,38 +40,65 @@ const toggleError = (flag, element, errorText) => {
     }
 }
 
+const updateNavigator = (nextPreviousSibling) => {
+    stepNavigatiors[activeSection].style.backgroundColor = 'white'
+    stepNavigatiors[activeSection].style.color = 'black'
+    if (activeSection >= 0 && activeSection <= 5) {
+        try {
+            stepNavigatiors[nextPreviousSibling].style.backgroundColor = 'transparent'
+            stepNavigatiors[nextPreviousSibling].style.color = 'white'
+        }
+
+        catch (error) { }
+    }
+}
+
+updateNavigator()
+
 const handleNextStep = () => {
     console.log(sections)
     sections[activeSection].style.display = "none"
     sections[activeSection + 1].style.display = "flex"
     activeSection += 1
+    updateNavigator(activeSection - 1)
 }
 
 const handleBackStep = () => {
     sections[activeSection].style.display = "none"
     sections[activeSection - 1].style.display = "flex"
     activeSection -= 1
+    updateNavigator(activeSection + 1)
 }
 
 const enableButton = () => {
-    nextButton.classList.add("enabled")
-    nextButton.classList.remove("disabled")
-    nextButton.disabled = false
+    nextButton[activeSection].classList.add("enabled")
+    nextButton[activeSection].classList.remove("disabled")
+    nextButton[activeSection].disabled = false
 }
 
 const disableButton = () => {
-    nextButton.disabled = true
-    nextButton.classList.add("disabled")
-    nextButton.classList.remove("enabled")
+    nextButton[activeSection].disabled = true
+    nextButton[activeSection].classList.add("disabled")
+    nextButton[activeSection].classList.remove("enabled")
 }
 
 const toggleButtonBehaviour = () => {
-    if (validity.stepOne.name === true && validity.stepOne.email === true && validity.stepOne.phone === true) {
-        enableButton()
-    } else {
-        disableButton()
+    if (activeSection === 0) {
+        if (validity.stepOne.name === true && validity.stepOne.email === true && validity.stepOne.phone === true) {
+            enableButton()
+        } else {
+            disableButton()
+        }
     }
 
+    if (activeSection === 1) {
+        if (validity.stepTwo.plan === true) {
+            enableButton()
+        }
+        else {
+            disableButton()
+        }
+    }
 }
 
 // KeyUp evemts on input tag
@@ -100,6 +143,15 @@ inputFieldsFirst.forEach((input, index) => {
             }
         }
 
+        toggleButtonBehaviour()
+    })
+})
+
+planRadioInputs.forEach((plan, index) => {
+    plan.addEventListener("change", () => {
+        console.log(plan)
+        validity.stepTwo.plan = true
+        console.log(nextButton)
         toggleButtonBehaviour()
     })
 })
