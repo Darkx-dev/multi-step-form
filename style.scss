@@ -289,6 +289,10 @@ main div.form__container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: inherit;
+            p {
+              margin: 0;
+            }
           }
         }
         
@@ -342,7 +346,7 @@ main div.form__container {
   }
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 950px) {
   main {
     height: 100%;
   }

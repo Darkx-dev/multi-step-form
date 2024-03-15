@@ -263,6 +263,10 @@ main div.form__container div.form__right section.step__4 div.section__middle div
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: inherit;
+}
+main div.form__container div.form__right section.step__4 div.section__middle div.row2 > div p {
+  margin: 0;
 }
 
 .switch {
@@ -303,7 +307,7 @@ main div.form__container div.form__right section.step__4 div.section__middle div
   cursor: not-allowed;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 950px) {
   main {
     height: 100%;
   }
