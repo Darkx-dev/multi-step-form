@@ -1,0 +1,38 @@
+{
+  "plan": {
+    "monthly": {
+      "arcade": {
+        "price": 9,
+        "duration": 12,
+        "bonus": 0
+      },
+      "advanced": {
+        "price": 12,
+        "duration": 12,
+        "bonus": 0
+      },
+      "pro": {
+        "price": 15,
+        "duration": 12,
+        "bonus": 0
+      }
+    },
+    "yearly": {
+      "arcade": {
+        "price": 90,
+        "duration": 12,
+        "bonus": 0
+      },
+      "advanced": {
+        "price": 120,
+        "duration": 12,
+        "bonus": 0
+      },
+      "pro": {
+        "price": 150,
+        "duration": 12,
+        "bonus": 0
+      }
+    }
+  }
+}

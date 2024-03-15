@@ -391,4 +391,7 @@ main div.form__container div.form__right section.step__4 div.section__middle div
   body > main > div.form__container div.form__right section.step__2 div.section__middle div.section__billing__cards div.section__switch {
     margin-top: 1rem;
   }
+  body > main > div.form__container div.form__right section.step__3 ul.addons__container div.addon__left div.addon__details p, body > main > div.form__container div.form__right section.step__3 ul.addons__container div.addon__left div.addon__details h3 {
+    line-height: 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */

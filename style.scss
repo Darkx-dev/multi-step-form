@@ -444,6 +444,17 @@ main div.form__container {
           }
         }
       }
+      section.step__3 {
+        ul.addons__container {
+          div.addon__left {
+            div.addon__details {
+              p, h3{
+                line-height: 1rem;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

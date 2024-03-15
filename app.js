@@ -4,13 +4,22 @@ const sections = document.querySelectorAll("section")
 const planRadioInputs = document.querySelectorAll("input.plan__input")
 const addonCheckboxInputs = document.querySelectorAll(".addon input")
 const stepNavigatiors = document.querySelectorAll(".form__step h4:first-child")
-console.log(stepNavigatiors)
+const switchPlanSlider = document.querySelector(".section__switch input#switch-rounded")
+const billingCards = document.querySelectorAll(".billing__card .plan__details")
+
+const fetchData = async () => {
+    const data = await fetch('./data.json')
+    const res = await data.json()
+    return await res
+}
+
+const data = fetchData()
 
 // Debugging
 // sections[0].style.display = "none"
-// sections[1].style.display = "none"
+// sections[1].style.display = "flex"
 // sections[2].style.display = "none"
-// sections[3].style.display = "flex"
+// sections[3].style.display = "none"
 
 // const errorSpans = document.querySelectorAll(".errorSpan")
 
@@ -24,7 +33,7 @@ let validity = {
     },
     stepTwo: {
         plan: false
-    }, 
+    },
     stepThree: {
         addon: true
     }
@@ -106,6 +115,7 @@ inputFieldsFirst.forEach((input, index) => {
     input.addEventListener("keyup", (e) => {
         let errorSpan = e.target.parentElement.childNodes[1].childNodes[3]
         let targetValue = e.target.value
+
         if (index === 0) {
             if (targetValue == "" || null) {
                 validity.stepOne.name = false
@@ -114,6 +124,7 @@ inputFieldsFirst.forEach((input, index) => {
             else {
                 validity.stepOne.name = true
                 toggleError(false, errorSpan)
+                sessionStorage.setItem("name", targetValue)
             }
         }
 
@@ -121,6 +132,7 @@ inputFieldsFirst.forEach((input, index) => {
             if (targetValue.includes('@') && targetValue.includes('.')) {
                 validity.stepOne.email = true
                 toggleError(false, errorSpan)
+                sessionStorage.setItem("email", targetValue)
             }
             else {
                 validity.stepOne.email = false
@@ -140,6 +152,7 @@ inputFieldsFirst.forEach((input, index) => {
             else {
                 validity.stepOne.phone = true
                 toggleError(false, errorSpan)
+                sessionStorage.setItem("phone", targetValue)
             }
         }
 
@@ -149,10 +162,43 @@ inputFieldsFirst.forEach((input, index) => {
 
 planRadioInputs.forEach((plan, index) => {
     plan.addEventListener("change", () => {
-        console.log(plan)
         validity.stepTwo.plan = true
-        console.log(nextButton)
         toggleButtonBehaviour()
+        console.log(plan.id)
+        sessionStorage.setItem("planId", plan.id )
+        console.log(plan.parentElement.querySelector(".plan__details"))
     })
 })
+
+switchPlanSlider.addEventListener("change", () => {
+    if (switchPlanSlider.checked) {
+        billingCards.forEach(async (card, index) => {
+            const price = card.querySelector('p')
+            if (index === 0) {
+                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.yearly.arcade.price }) + "/yr"
+            } 
+            else if (index === 1) {
+                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.yearly.advanced.price }) + "/yr"
+            }
+            else if (index === 2) {
+                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.yearly.pro.price }) + "/yr"
+            }
+        })
+    }
+    else {
+        billingCards.forEach(async (card, index) => {
+            const price = card.querySelector('p')
+            if (index === 0) {
+                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.monthly.arcade.price }) + "/mo"
+            }
+            else if (index === 1) {
+                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.monthly.advanced.price }) + "/mo"
+            }
+            else if (index === 2) {
+                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.monthly.pro.price }) + "/mo"
+            }
+        })
+    }
+})
+
 
