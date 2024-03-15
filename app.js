@@ -13,8 +13,6 @@ const fetchData = async () => {
     return await res
 }
 
-const data = fetchData()
-
 // Debugging
 // sections[0].style.display = "none"
 // sections[1].style.display = "flex"
@@ -170,35 +168,28 @@ planRadioInputs.forEach((plan, index) => {
     })
 })
 
-switchPlanSlider.addEventListener("change", () => {
-    if (switchPlanSlider.checked) {
-        billingCards.forEach(async (card, index) => {
-            const price = card.querySelector('p')
-            if (index === 0) {
-                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.yearly.arcade.price }) + "/yr"
-            } 
-            else if (index === 1) {
-                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.yearly.advanced.price }) + "/yr"
-            }
-            else if (index === 2) {
-                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.yearly.pro.price }) + "/yr"
-            }
-        })
-    }
-    else {
-        billingCards.forEach(async (card, index) => {
-            const price = card.querySelector('p')
-            if (index === 0) {
-                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.monthly.arcade.price }) + "/mo"
-            }
-            else if (index === 1) {
-                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.monthly.advanced.price }) + "/mo"
-            }
-            else if (index === 2) {
-                price.textContent = "$" + await data.then((daaa) => { return daaa.plan.monthly.pro.price }) + "/mo"
-            }
-        })
-    }
-})
+switchPlanSlider.addEventListener("change", async () => {
+    const data = await fetchData(); // Assuming fetchData() retrieves the data
+    const planType = switchPlanSlider.checked ? 'yearly' : 'monthly'; // Determine plan type
+
+    billingCards.forEach((card, index) => {
+        const price = card.querySelector('p');
+        const billingFrequency = switchPlanSlider.checked ? 'yr' : 'mo'; // Set billing frequency
+
+        switch (index) {
+            case 0:
+                price.textContent = `$${data.plan[planType].arcade.price}/${billingFrequency}`;
+                break;
+            case 1:
+                price.textContent = `$${data.plan[planType].advanced.price}/${billingFrequency}`;
+                break;
+            case 2:
+                price.textContent = `$${data.plan[planType].pro.price}/${billingFrequency}`;
+                break;
+            default:
+                break;
+        }
+    });
+});
 
 
