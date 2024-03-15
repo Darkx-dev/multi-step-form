@@ -15,10 +15,10 @@ const finalRow1 = document.querySelectorAll(
 console.log(addonDetails);
 
 // Debugging
-sections[0].style.display = "none";
-sections[1].style.display = "none";
-sections[2].style.display = "none";
-sections[3].style.display = "flex";
+// sections[0].style.display = "none";
+// sections[1].style.display = "none";
+// sections[2].style.display = "none";
+// sections[3].style.display = "flex";
 
 // const errorSpans = document.querySelectorAll(".errorSpan")
 
