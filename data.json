@@ -34,5 +34,29 @@
         "bonus": 0
       }
     }
+  },
+  "addons": {
+    "monthly": {
+      "addon1": {
+        "price": 1
+      },
+      "addon2": {
+        "price": 2
+      },
+      "addon3": {
+        "price": 2
+      }
+    },
+    "yearly": {
+      "addon1": {
+        "price": 10
+      },
+      "addon2": {
+        "price": 20
+      },
+      "addon3": {
+        "price": 20
+      }
+    }
   }
 }

@@ -9,12 +9,10 @@ const switchPlanSlider = document.querySelector(
 );
 const billingCards = document.querySelectorAll(".billing__card .plan__details");
 const addonDetails = document.querySelectorAll("li.addon span");
-
-const fetchData = async () => {
-  const data = await fetch("data.json");
-  const res = await data.json();
-  return await res;
-};
+const finalRow1 = document.querySelectorAll(
+  "section.step__4 .section__middle > div:first-child h4"
+);
+console.log(addonDetails);
 
 // Debugging
 sections[0].style.display = "none";
@@ -27,23 +25,28 @@ sections[3].style.display = "flex";
 let activeSection = 0;
 
 let validity = {
-  stepOne: {
-    name: false,
+    stepOne: {
+        name: false,
     email: false,
     phone: false,
-  },
-  stepTwo: {
+},
+stepTwo: {
     plan: false,
-  },
-  stepThree: {
+},
+stepThree: {
     addon: {
-      addon1: false,
-      addon2: false,
-      addon3: false,
+        addon1: false,
+        addon2: false,
+        addon3: false,
     },
-  },
+},
 };
 
+const fetchData = async () => {
+  const data = await fetch("data.json");
+  const res = await data.json();
+  return await res;
+};
 // toggles error
 const toggleError = (flag, element, errorText) => {
   if (flag === true) {
@@ -96,24 +99,28 @@ const disableButton = () => {
 };
 
 const toggleButtonBehaviour = () => {
-  if (activeSection === 0) {
-    if (
-      validity.stepOne.name === true &&
-      validity.stepOne.email === true &&
-      validity.stepOne.phone === true
-    ) {
-      enableButton();
-    } else {
+  switch (activeSection) {
+    case 0:
+      if (
+        validity.stepOne.name &&
+        validity.stepOne.email &&
+        validity.stepOne.phone
+      ) {
+        enableButton();
+      } else {
+        disableButton();
+      }
+      break;
+    case 1:
+      if (validity.stepTwo.plan) {
+        enableButton();
+      } else {
+        disableButton();
+      }
+      break;
+    default:
       disableButton();
-    }
-  }
-
-  if (activeSection === 1) {
-    if (validity.stepTwo.plan === true) {
-      enableButton();
-    } else {
-      disableButton();
-    }
+      break;
   }
 };
 
@@ -178,11 +185,11 @@ planRadioInputs.forEach((plan, index) => {
 switchPlanSlider.addEventListener("change", async () => {
   const data = await fetchData(); // Assuming fetchData() retrieves the data
   const planType = switchPlanSlider.checked ? "yearly" : "monthly"; // Determine plan type
+  const billingFrequency = switchPlanSlider.checked ? "yr" : "mo"; // Set billing frequency
   sessionStorage.setItem("planType", planType);
 
   billingCards.forEach((card, index) => {
     const price = card.querySelector("p");
-    const billingFrequency = switchPlanSlider.checked ? "yr" : "mo"; // Set billing frequency
 
     switch (index) {
       case 0:
@@ -198,6 +205,21 @@ switchPlanSlider.addEventListener("change", async () => {
         break;
     }
   });
+  addonDetails.forEach((span, index) => {
+    switch (index) {
+      case 0:
+        span.textContent = `$${data.addons[planType].addon1.price}/${billingFrequency}`;
+        break;
+      case 1:
+        span.textContent = `$${data.addons[planType].addon2.price}/${billingFrequency}`;
+        break;
+      case 2:
+        span.textContent = `$${data.addons[planType].addon3.price}/${billingFrequency}`;
+        break;
+      default:
+        break;
+    }
+  })
 });
 
 addonCheckboxInputs.forEach((addon, index) => {
