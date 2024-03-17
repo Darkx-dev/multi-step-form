@@ -28,6 +28,7 @@ div.btn-container {
 body {
   background-color: $Lightgray;
   min-height: 100vh;
+  width: 100%;
 }
 main {
   display: grid;
@@ -35,6 +36,7 @@ main {
   height: 100vh;
   width: 100%;
 }
+
 main div.form__container {
   display: flex;
   background-color: $White;
@@ -159,11 +161,9 @@ main div.form__container {
           margin-top: 3rem;
           div.billing__card {
             position: relative;
-            // width: 8rem;
             padding: 1rem;
             display: flex;
             flex-direction: column;
-
             border-radius: 6px;
             gap: 3rem;
             > div {
@@ -282,7 +282,7 @@ main div.form__container {
           h4 {
             font-weight: 400;
           }
-          border-top: 1px solid rgba(0, 0, 0, 0.250);
+          border-top: 1px solid rgba(0, 0, 0, 0.25);
           display: block;
           // background-color: red;
           > div {
@@ -295,7 +295,6 @@ main div.form__container {
             }
           }
         }
-        
       }
     }
   }
@@ -390,20 +389,18 @@ main div.form__container {
     div.form__right {
       position: relative;
       width: 100%;
-      // background-color: cyan;
       div.section__main__wrapper {
         position: fixed;
-        // background-color: red;
         width: 100vw;
-        // padding: 2rem;
         display: flex;
+        overflow: scroll;
+        height: min-content;
         align-items: center;
         justify-content: center;
         left: 0;
         top: 7rem;
         > div {
           background-color: white;
-          // margin: 1rem;
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
           width: 90vw;
           border-radius: 10px;
@@ -411,7 +408,6 @@ main div.form__container {
         }
       }
       section.step__2 {
-        // background-color: red;
         div.section__middle {
           div.section__billing__cards {
             margin-top: 1rem;
@@ -452,7 +448,8 @@ main div.form__container {
         ul.addons__container {
           div.addon__left {
             div.addon__details {
-              p, h3{
+              p,
+              h3 {
                 line-height: 1rem;
               }
             }

@@ -12,34 +12,34 @@ const addonDetails = document.querySelectorAll("li.addon span");
 const finalRow1 = document.querySelectorAll(
   "section.step__4 .section__middle > div:first-child h4"
 );
-console.log(addonDetails);
+console.log(finalRow1);
 
 // Debugging
 // sections[0].style.display = "none";
 // sections[1].style.display = "none";
 // sections[2].style.display = "none";
 // sections[3].style.display = "flex";
- 
+
 // const errorSpans = document.querySelectorAll(".errorSpan")
 
 let activeSection = 0;
 
 let validity = {
-    stepOne: {
-        name: false,
+  stepOne: {
+    name: false,
     email: false,
     phone: false,
-},
-stepTwo: {
+  },
+  stepTwo: {
     plan: false,
-},
-stepThree: {
+  },
+  stepThree: {
     addon: {
-        addon1: false,
-        addon2: false,
-        addon3: false,
+      addon1: false,
+      addon2: false,
+      addon3: false,
     },
-},
+  },
 };
 
 const fetchData = async () => {
@@ -118,6 +118,8 @@ const toggleButtonBehaviour = () => {
         disableButton();
       }
       break;
+    case 3:
+
     default:
       disableButton();
       break;
@@ -176,9 +178,7 @@ planRadioInputs.forEach((plan, index) => {
   plan.addEventListener("change", () => {
     validity.stepTwo.plan = true;
     toggleButtonBehaviour();
-    console.log(plan.id);
     sessionStorage.setItem("planId", plan.id);
-    console.log(plan.parentElement.querySelector(".plan__details"));
   });
 });
 
@@ -219,7 +219,7 @@ switchPlanSlider.addEventListener("change", async () => {
       default:
         break;
     }
-  })
+  });
 });
 
 addonCheckboxInputs.forEach((addon, index) => {
